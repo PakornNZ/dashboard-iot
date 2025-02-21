@@ -1,0 +1,802 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+* body {
+    padding: 0;
+    margin: 0;
+    /* overflow: hidden; */
+}
+
+/* login */
+.login {
+    z-index: 9;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(39, 39, 39, 0.445);
+}
+
+.data-login {
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem;
+    border-radius: 25px;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(40, 243, 33, 0.05),
+        0 0 20px rgba(40, 243, 33, 0.1);
+    backdrop-filter: blur(20px);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.bg-login h1 {
+    color: #FFD7C4;
+    text-align: center;
+    margin: 0;
+    padding-top: 15px;
+    font-family: 'Kanit';
+    font-size: 50px;
+}
+
+.bg-login h2 {
+    color: #FFCDB2;
+    text-align: center;
+    margin: 0;
+    padding-top: 0;
+    font-family: 'Kanit';
+    font-size: 60px;
+}
+
+.data-login form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.data-login form input {
+    padding: 12px;
+    border: 2px solid #FFCDB2;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.05),
+        0 0 8px rgba(40, 243, 33, 0.1);
+}
+
+.data-login form input:focus {
+    outline: none;
+    border-color: #ffaf84;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.1),
+        0 0 15px rgba(40, 243, 33, 0.2);
+}
+
+.data-login form button {
+    font-family: 'Kanit';
+    width: 100%;
+    padding: 14px;
+    margin-top: 1rem;
+    background: linear-gradient(145deg, #FFD7C4, #f7ad8a);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow:
+        0 4px 12px #e7a77d4d,
+        0 0 20px #f3802133,
+        inset 0 0 8px #ffffff4d;
+}
+
+.data-login form button:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 6px 15px #f3522166,
+        0 0 30px #f380214d,
+        inset 0 0 10px #ffffff66;
+}
+
+.data-login form button:active {
+    transform: translateY(1px);
+    box-shadow:
+        0 2px 8px #f26e2133,
+        0 0 15px #f36e211a,
+        inset 0 0 6px #ffffff33;
+}
+
+/* logout button */
+.logout {
+    z-index: 8;
+    position: absolute;
+}
+
+.bg-logout {
+    position: fixed;
+    top: 10px;
+    right: 30px;
+}
+
+.bg-logout button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    color: #ffffff;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #FFD7C4, #f7ad8a);
+    transition: all 0.3s ease;
+    font-family: 'Kanit';
+}
+
+.logout button:hover {
+    transform: scale(1.1);
+    box-shadow:
+        0 6px 15px #f3522166,
+        0 0 30px #f380214d,
+        inset 0 0 10px #ffffff66;
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #ff6b6b;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.logout-btn .material-icons {
+    font-size: 28px;
+}
+
+.logout-btn:hover {
+    background-color: #ff4f4f;
+}
+
+.logout button span {
+    font-size: 40px;
+}
+
+/* text Dashboard */
+.text-web {
+    background-color: #FFD7C4;
+}
+
+.text-web h1 {
+    font-family: 'Kanit';
+    position: absolute;
+    left: 730px;
+    margin: 0px;
+    margin-left: 20px;
+    font-size: 40px;
+    color: #f7adb0;
+}
+
+/* device */
+
+/* control led */
+/* .led {
+    display: flex;
+    margin: 10px;
+} */
+
+.bg-led {
+    position: relative;
+    top: -15px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow:
+        0 8px 32px #ff00001a,
+        0 0 20px #f5a0791a;
+    width: 270px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 10px;
+}
+
+.led-container {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.led-title {
+    color: #f7adb0;
+    position: relative;
+    bottom: 50px;
+    left: 100px;
+    font-family: 'Kanit';
+    font-size: 40px;
+}
+
+.bg-led .led1,
+.led2 {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    position: relative;
+    bottom: 70px;
+    left: 40px;
+}
+
+.bg-led span {
+    color: #FFCDB2;
+    padding-right: 10px;
+    justify-content: center;
+    text-align: center;
+    font-family: 'Kanit';
+    font-size: 35px;
+}
+
+.switch-1 {
+    position: relative;
+    width: 60px;
+    height: 34px;
+    left: 10px;
+}
+
+.switch-1 input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch-2 {
+    position: relative;
+    width: 60px;
+    height: 34px;
+    left: 5px;
+}
+
+.switch-2 input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #73ec6e;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #73ec6e;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* fan */
+.devices-wrapper {
+    display: flex;
+    gap: 2rem;
+    padding: 20px;
+}
+
+.fan-container {
+    background: #ffffffe6;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow:
+        0 8px 32px #e97a7a1a,
+        0 0 20px #f5a0791a;
+    width: 270px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: -10px;
+    top: -15px;
+}
+
+.fan-title {
+    color: #f7adb0;
+    position: relative;
+    bottom: 80px;
+    left: 10px;
+    font-family: 'Kanit';
+    font-size: 40px;
+}
+
+.fan {
+    position: relative;
+    right: 35px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    animation: spin 2s linear infinite;
+}
+
+.fan:after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+    border: 15px double #ccc;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.blade {
+    position: absolute;
+    width: 50px;
+    height: 30px;
+    background: #fff;
+    border-radius: 50px;
+    transform-origin: 50% 50%;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+}
+
+.blade:nth-child(1) {
+    transform: rotate(0deg) translate(30px) rotate(0deg);
+}
+
+.blade:nth-child(2) {
+    transform: rotate(120deg) translate(30px) rotate(0deg);
+}
+
+.blade:nth-child(3) {
+    transform: rotate(240deg) translate(30px) rotate(0deg);
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.fan-container button {
+    font-family: 'Kanit';
+    color: #FFCDB2;
+    position: absolute;
+    width: 100px;
+    height: 39px;
+    top: 193px;
+    left: 190px;
+    /* padding: 5px; */
+    border: 2px solid #FFCDB2;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.05),
+        0 0 8px rgba(40, 243, 33, 0.1);
+}
+
+.fan-container button:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 6px 15px #f3522166,
+        0 0 30px #f380214d,
+        inset 0 0 10px #ffffff66;
+}
+
+.fan-container button:active {
+    transform: translateY(1px);
+    box-shadow:
+        0 2px 8px #f26e2133,
+        0 0 15px #f36e211a,
+        inset 0 0 6px #ffffff33;
+}
+
+.fan-container .fan-input {
+    position: absolute;
+    width: 125px;
+    top: 193px;
+    left: 40px;
+    padding: 8px;
+    border: 2px solid #FFCDB2;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.05),
+        0 0 8px rgba(40, 243, 33, 0.1);
+}
+
+.fan-container .fan-input:focus {
+    outline: none;
+    border-color: #ffaf84;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.1),
+        0 0 15px rgba(40, 243, 33, 0.2);
+}
+
+/* gauge sensor */
+.gauge {
+    display: flex;
+}
+
+.bg-gauge {
+    height: 600px;
+    position: relative;
+    top: -40px;
+    left: 22px;
+    padding: 20px;
+    background: #ffffffe6;
+    border-radius: 10px;
+    box-shadow:
+        0 8px 32px #ff00001a,
+        0 0 20px #f5a0791a;
+}
+
+.bg-gauge .gauge-title {
+    color: #f7adb0;
+    position: relative;
+    top: -20px;
+    left: 88%;
+    margin-bottom: 0px;
+    transform: translate(-50%, -50%);
+    font-family: 'Kanit';
+    font-size: 40px;
+}
+
+.gauge-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+}
+
+.gauge-dp {
+    position: relative;
+    top: -30px;
+    background-color: #fcf7f7;
+    width: 320px;
+    height: 250px;
+    border-radius: 20px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+}
+
+.zc-ref {
+    display: none;
+}
+
+.gauge-dp .gauge-dps {
+    height: 100%;
+    width: 100%;
+    min-height: 150px;
+}
+
+.gauge-dp1 .gauge-dps {
+    height: 100%;
+    width: 100%;
+    min-height: 150px;
+}
+.gauge-status {
+    display: flex;
+    align-items: center;
+    font-family: 'Kanit';
+}
+
+.gauge-status h3 {
+    margin: 0;
+    padding: 0;
+    color: #f7adb0;
+    font-size: 24px;
+}
+
+.gauge-status div {
+    margin: 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ff0000;
+    border: solid 2px #79927a;
+}
+
+.chart {
+    padding: 20px;
+    background: #ffffffe6;
+    border-radius: 10px;
+    box-shadow:
+        0 8px 32px #ff00001a,
+        0 0 20px #f5a0791a;
+    display: flex;
+    flex-direction: column;
+}
+
+.chart h1 {
+    margin: 0;
+    color: #f7adb0;
+    font-family: 'Kanit';
+    font-size: 40px;
+    padding-bottom: 20px;
+}
+
+.chart-container {
+    padding: 20px 40px;
+    max-width: 1035px;
+    height: 400px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#myChart {
+    width: 1035px;
+    height: 400px;
+}
+
+.chart-title {
+    color: #f7adb0;
+    position: relative;
+    bottom: 50px;
+    left: 20px;
+    font-family: 'Kanit';
+    font-size: 40px;
+}
+
+
+.datetime {
+    width: 100%;
+    background: #ffffffe6;
+    border-radius: 10px;
+    box-shadow:
+        0 8px 32px #ff00001a,
+        0 0 20px #f5a0791a;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.day {
+    display: flex;
+    margin-left: 10px;
+}
+
+.time {
+    display: flex;
+    align-items: center;
+}
+
+.feel {
+    display: flex;
+}
+
+.datetime h3 {
+    margin: 0;
+    color: #f7adb0;
+    font-family: 'Kanit';
+    font-size: 40px;
+}
+
+.datetime .weekly {
+    margin: 0;
+    font-family: 'Kanit';
+    font-size: 25px;
+    color: #ccc;
+    padding-right: 5px;
+}
+
+.datetime p {
+    margin: 0;
+    font-family: 'Kanit';
+    font-size: 25px;
+    color: #FFCDB2;
+    padding-right: 5px;
+}
+
+.datetime .day {
+    font-family: 'Kanit';
+    font-size: 25px;
+    color: #ccc;
+    padding-right: 5px;
+}
+
+.datetime .month {
+    font-family: 'Kanit';
+    font-size: 25px;
+    color: #FFCDB2;
+    padding-right: 5px;
+}
+
+.datetime .year {
+    font-family: 'Kanit';
+    font-size: 25px;
+    color: #ccc;
+}
+
+.datetime .time {
+    font-family: 'Kanit';
+    font-size: 52px;
+    color: #FFCDB2;
+    padding-right: 5px;
+}
+
+.datetime h1 {
+    font-family: 'Kanit';
+    font-weight: 400;
+    font-size: 42px;
+    color: #ccc;
+    margin: 0;
+    padding-right: 5px;
+}
+
+.datetime .temp {
+    font-family: 'Kanit';
+    font-weight: 500;
+    font-size: 34px;
+    color: #FFCDB2;
+}
+
+.datetime .tempEmoji {
+    font-family: 'Kanit';
+    font-size: 34px;
+    color: #ccc;
+}
+
+.ph {
+    width: 100%;
+    background: #ffffffe6;
+    border-radius: 10px;
+    box-shadow:
+        0 8px 32px #ff00001a,
+        0 0 20px #f5a0791a;
+}
+
+.ph .gauge-dp1 {
+    background-color: #fcf7f7;
+    width: 320px;
+    height: 250px;
+    border-radius: 20px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+    margin: 20px auto;
+}
+
+.bg-datetime {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.datetime .calendar {
+    width: 80%;
+    padding: 10px;
+    margin: 10px auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-header {
+    font-family: 'Kanit';
+    display: flex;
+    color: #ff9999;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.calendar-header button {
+    background: #ff9999;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+}
+
+.calendar-days {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: bold;
+    color: #ff9999;
+    font-family: 'Kanit';
+}
+
+#calendarDates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+#calendarDates div {
+    padding: 3px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 0px;
+    font-family: 'Kanit';
+    color: #ccc;
+}
+
+#calendarDates div.today {
+    background: #ff9999;
+    color: white;
+    font-weight: bold;
+    font-family: 'Kanit';
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 0;
+}
+
+.grid1 {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    height: 100vh;
+    gap: 20px;
+}
+
+.grid2 {
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    height: 100vh;
+    gap: 20px;
+}
+
+.date {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+}

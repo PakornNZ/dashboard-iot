@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/index.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <title>NAF Dashboard</title>
+</head>
+
+<body>
+
+    <div name="login" class="login" style="display:none;">
+        <div class="bg-login">
+            <div class="data-login">
+                <h1>NAF Dashboard</h1>
+                <h2>LOGIN</h2>
+                <form method="post" enctype="multipart/form-data" name="loginForm">
+                    <input type="text" name="username" placeholder="Username">
+                    <input type="password" name="password" placeholder="Password">
+                    <button class="button-login" onclick="loginJS()">Login</button>
+            </div>
+        </div>
+        <div class="fade-login"></div>
+    </div>
+
+    <div class="logout">
+        <div class="bg-logout">
+            <button class="logout-btn" onclick="logoutJS()">
+                <span class="material-icons">logout</span>
+            </button>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="grid1">
+            <div class="devices-wrapper">
+                <div class="led">
+                    <div class="bg-led">
+                        <h3 class="led-title">LED</h3>
+                        <div class="led-container">
+                            <div class="led1">
+                                <span>LED 1</span>
+                                <label class="switch-1">
+                                    <input id="led1-btn" type="checkbox" onclick="fetchSensorControl('led1')">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="led2">
+                                <span>LED 2</span>
+                                <label class="switch-2">
+                                    <input id="led2-btn" type="checkbox" onclick="fetchSensorControl('led2')">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="fan-container">
+                    <h3 class="fan-title">FAN</h3>
+                    <button id="btn-fan" type="button" onclick="controlValue()">Save</button>
+                    <div class="bg-fan">
+                        <div class="fan">
+                            <div class="blade"></div>
+                            <div class="blade"></div>
+                            <div class="blade"></div>
+                        </div>
+                    </div>
+                    <input class="fan-input" type="text" id="fan-input" placeholder="">
+                </div>
+            </div>
+
+            <div class="gauge">
+                <div class="bg-gauge">
+                    <h3 class="gauge-title">Sensors</h3>
+                    <div class="gauge-container">
+                        <div class="gauge-dp">
+                            <div class="gauge-status">
+                                <div></div>
+                                <h3>Temperature</h3>
+                            </div>
+                            <div class="gauge-dps" id='tempChart'></div>
+                        </div>
+                        <div class="gauge-dp">
+                            <div class="gauge-status">
+                                <div></div>
+                                <h3>Humidity</h3>
+                            </div>
+                            <div class="gauge-dps" id='humChart'></div>
+                        </div>
+                        <div class="gauge-dp">
+                            <div class="gauge-status">
+                                <div></div>
+                                <h3>Light</h3>
+                            </div>
+                            <div class="gauge-dps" id='ldrChart'></div>
+                        </div>
+                        <div class="gauge-dp">
+                            <div class="gauge-status">
+                                <div></div>
+                                <h3>Water</h3>
+                            </div>
+                            <div class="gauge-dps" id='waterChart'></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid2">
+            <div class="chart">
+                <h1>NAF Dashboard</h1>
+                <div class="chart-container">
+                    <canvas id="myChart" width="600" height="300"></canvas>
+                </div>
+            </div>
+
+            <div class="date">
+                <div class="ph">
+                    <div class="gauge-dp1">
+                        <div class="gauge-status">
+                            <div></div>
+                            <h3>pH</h3>
+                        </div>
+                        <div class="gauge-dps" id='pHChart'></div>
+                    </div>
+                </div>
+                <div class="datetime">
+                    <div class="bg-datetime">
+                        <h3 class="datetime-title">Date/Time</h3>
+                        <div class="day">
+                            <span class="weekly" id="weekday"></span></p>
+                            <p> ที่</p><span class="day" id="day"></span></p>
+                            <span class="month" id="month"></span></p>
+                            <span class="year" id="year"></span></p>
+                        </div>
+                        <div class="time">
+                            </p><span class="time" id="time"></span></p>
+                            <h1> น.</h1>
+                        </div>
+                        <div class="feel">
+                            <span class="temp" id="temperature"></span></p>
+                            <span class="tempEmoji" id="tempEmoji"></span>
+                        </div>
+                    </div>
+                    <div class="calendar">
+                        <div class="calendar-header">
+                            <button type="button" id="prevMonth">&lt;</button>
+                            <span id="monthYear"></span>
+                            <button type="button" id="nextMonth">&gt;</button>
+                        </div>
+                        <div class="calendar-body">
+                            <div class="calendar-days">
+                                <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+                            </div>
+                            <div id="calendarDates"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/calendar.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/gauge.js"></script>
+    <script src="js/sensor.js"></script>
+    <script src="js/chart.js"></script>
+    <script src="js/control.js"></script>
+    <script src="js/datetime.js"></script>
+</body>
+
+</html>

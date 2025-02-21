@@ -1,0 +1,42 @@
+services:
+  php-environment:
+    restart: always
+    container_name: php-apache
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./dashboard:/var/www/html/
+      - ./screenshots:/app/screenshots
+    ports:
+      - 80:80
+    networks:
+      - my_network
+    environment:
+      - TZ=Asia/Bangkok
+    depends_on:
+      - postgres
+      - puppeteer
+
+  postgres:
+    image: postgres
+    container_name: postgres-container
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: '00000000'
+      POSTGRES_USER: postgres
+      POSTGRES_DB: project
+      TZ: Asia/Bangkok
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - my_network
+
+volumes:
+  pg_data:
+
+networks:
+  my_network:
+    driver: bridge
